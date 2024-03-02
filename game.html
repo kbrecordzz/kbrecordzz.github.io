@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<meta charset="utf-8">
+
+<style>
+@font-face { font-family: 'kbfont'; src: url('files/TT2020StyleE-Regular_smaller2.ttf') format('truetype'); }
+@font-face { font-family: 'BlackChancery'; src: url('files/BLKCHCRY.TTF') format('truetype'); }
+</style>
+
+<html>
+	<head>
+		<meta name="viewport" content="user-scalable=no"/>
+		<style>body { touch-action: none; }</style>
+		<link rel="icon" href="files/logo_kbr.ico">
+		<title>This Is (NOT!) A Car Club</title>
+	</head>
+
+	<img id="loadingscreen" style="position: fixed; top: 50%; left: 50%; min-height: 20vh; max-width: 80%; transform: translate(-50%, -50%);" src="files/cropped-test-6.gif"></img>
+
+	<!-- body must be used, otherwise nothing will show on screen -->
+	<!-- this prevents text highlighting -->
+	<body style="-webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; background-color: #73205D; margin: 0;">
+
+		<img id="vhs-filter" style="mix-blend-mode: multiply; opacity: 0.5; position: fixed; width: 100%; height: 100%; visibility: hidden;" src="files/whitegif_small.gif"></img>
+
+		<img id="ui_mouse_click" style="position: fixed; top: 50%; left: 50%; min-height: 20vh; max-width: 80%; transform: translate(-50%, -50%); image-rendering: pixelated; visibility: hidden;" src="files/ui_mouse_click.png"></img>
+
+		<!-- saker som ska gå att klicka på måste vara längst ner -->
+		<i><p id="area" style="position: fixed; visibility: hidden;"></p></i>
+		<p id="scene" style="position: fixed; visibility: hidden;"></p>
+
+		<img id="count_3" style="position: fixed; visibility: hidden;" src="files/COUNT_3.png"></img>
+		<img id="count_2" style="position: fixed; visibility: hidden;" src="files/COUNT_2.png"></img>
+		<img id="count_1" style="position: fixed; visibility: hidden;" src="files/COUNT_1.png"></img>
+		<p id="leader" style="position: fixed; visibility: hidden;"></p>
+		<img id="wrongway" style="position: fixed; visibility: hidden;" src="files/WRONG_WAY.png"></img>
+
+		<div id="dialog_background" style="position: fixed; visibility: hidden;">
+			<img id="dialog_head" style="position: fixed; visibility: hidden;"></img>
+			<p id="dialog_name" style="position: fixed; visibility: hidden;"></p>
+			<p id="dialog_text" style="position: fixed; visibility: hidden;"></p>
+		</div>
+		<div id="dialog_background2" style="position: fixed; visibility: hidden;">
+			<img id="dialog_head2" style="position: fixed; visibility: hidden;"></img>
+			<p id="dialog_name2" style="position: fixed; visibility: hidden;"></p>
+			<p id="dialog_text2" style="position: fixed; visibility: hidden;"></p>
+		</div>
+		<div id="dialog_background3" style="position: fixed; visibility: hidden;">
+			<img id="dialog_head3" style="position: fixed; visibility: hidden;"></img>
+			<p id="dialog_name3" style="position: fixed; visibility: hidden;"></p>
+			<p id="dialog_text3" style="position: fixed; visibility: hidden;"></p>
+		</div>
+	<!--	<style>#dialog_background:hover, #dialog_background2:hover, #dialog_background3:hover, #dvdmenu_1:active { filter: invert(100%); }</style>	-->
+
+	<!--	<img id="oldtv-filter" style="mix-blend-mode: multiply; opacity: 0.4; position: fixed; width: 100%; height: 100%; visibility: hidden;" src="files/oldtv.gif"></img>	-->
+
+		<div id="dvdmenu" style="position: fixed; visibility: hidden;">
+			<img id="dvdmenu_image" style="position: fixed; visibility: hidden;" src="files/asdq_credits.png"></img>
+
+			<a id="save_text" style="position: fixed; visibility: hidden;" target=_blank href=""><br><img id="save_image" src="files/save_button.png"></img> Copy link to continue playing in another browser</a> <i><center>(automatic save in this browser)</center></i><br>
+
+			<b></b> <br>
+			<a id="dvdmenu_1"></a>  <a id="dvdmenu_2"></a> <a id="dvdmenu_3"></a> <a id="dvdmenu_4"></a>
+			<a id="dvdmenu_5"></a><a id="dvdmenu_6"></a><a id="dvdmenu_7"></a><a id="dvdmenu_8"></a><a id="dvdmenu_9"></a>
+
+			<style>#dvdmenu_1:hover, #dvdmenu_1:active { background-color: green; filter: invert(100%); }</style>
+			<style>#dvdmenu_2:hover, #dvdmenu_2:active { background-color: green; filter: invert(100%); }</style>
+			<style>#dvdmenu_3:hover, #dvdmenu_3:active { background-color: green; filter: invert(100%); }</style>
+			<style>#dvdmenu_4:hover, #dvdmenu_4:active { background-color: green; filter: invert(100%); }</style>
+			<style>#dvdmenu_5:hover, #dvdmenu_5:active { background-color: green; filter: invert(100%); }</style>
+			<style>#dvdmenu_6:hover, #dvdmenu_6:active { background-color: green; filter: invert(100%); }</style>
+			<style>#dvdmenu_7:hover, #dvdmenu_7:active { background-color: green; filter: invert(100%); }</style>
+			<style>#dvdmenu_8:hover, #dvdmenu_8:active { background-color: green; filter: invert(100%); }</style>
+			<style>#dvdmenu_9:hover, #dvdmenu_9:active { background-color: green; filter: invert(100%); }</style>
+		</div>
+
+		<div id="button_pause" style="position: fixed; visibility: hidden;">?</div>
+		<style>#button_pause:hover, #button_pause:active { filter: invert(100%); }</style>
+		<div id="button_fullscreen" style="position: fixed; visibility: hidden;"></div>
+		<style>#button_fullscreen:hover, #button_fullscreen:active { filter: invert(100%); }</style>
+
+		<div id="button_up" style="position: fixed; visibility: hidden;">&blacktriangle;</div>
+		<div id="button_down" style="position: fixed; visibility: hidden;">&#x25A0;</div>
+		<div id="button_left" style="position: fixed; visibility: hidden;">&blacktriangleleft;</div>
+		<div id="button_right" style="position: fixed; visibility: hidden;">&blacktriangleright;</div>
+
+		
+		<div id="credits_background" style="position: fixed; visibility: hidden;">
+			<p id="credits_text" style="position: fixed; visibility: hidden;">A game by: kbrecordzz<br>Story ideas: H. Von Asrik<br>Game ideas: Rumble Raz<br>Ideas: Desperado<br>'Epper: Mr. Jon Athan<br>Terrain: Based on Graham Relf's "The Forest"<br>AI art: craiyon.com<br>Songs: sfabian, Naomi Benham<br>Background image: Sachiko Mili</p>
+			<style>#save_text:hover, #save_text:active { background-color: green; filter: invert(100%); }</style>
+		</div>
+
+		<img id="button_continue" style="position: absolute; visibility: hidden;" src="files/CONTINUE2.png"></img>
+		<img id="button_play" style="position: absolute; visibility: hidden;" src="files/START2.png"></img>
+		<style>#button_continue:hover, #button_continue:active { filter: invert(100%); }</style>
+		<style>#button_play:hover, #button_play:active { filter: invert(100%); }</style>
+
+		<script src="loadfirst.js?v=12"></script>
+		<script src="three.min.js"></script>			<!-- r113? yes, probably -->
+		<script src="ascend.js?v=12"></script>	
+		<script src="functions.js?v=12"></script>	
+		<script src="basic.js?v=12"></script>	
+		<script src="input.js?v=12"></script>	
+		<script src="main.js?v=12"></script>	
+	</body>
+</html>

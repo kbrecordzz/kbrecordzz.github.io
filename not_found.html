@@ -1,0 +1,14 @@
+<script>
+
+// redirect all .PHP to .HTML, with ?& parameters included
+if(location.href.includes(".php"))
+{
+  location.href = location.href.replace(".php", ".html");
+}
+// normal 404 page
+else
+{
+  window.alert("NOT FOUND");
+}
+
+</script>
