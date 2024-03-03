@@ -8,7 +8,7 @@ function getParameterByName(name) {
 
 var val = getParameterByName('GIRL');
 if (val) {
-document.cookie = "GIRL_COOKIE=" + encodeURIComponent(val);
+document.cookie = "GIRL_COOKIE=" + encodeURIComponent(val) + "; expires=" + new Date(Date.now() + 31536000000).toUTCString();
 }
 
 var fromcookie = decodeURIComponent(document.cookie.replace(/(?:(?:^|.*;\s*)GIRL_COOKIE\s*=\s*([^;]*).*$)|^.*$/, "$1"));
