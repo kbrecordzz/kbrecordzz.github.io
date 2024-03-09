@@ -1,18 +1,39 @@
-GITHUB TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST
+<meta name="description" content="A funny web/mobile RPG/racing/adventure game about a car club that gets threatened by an evil cat who wants to replace all cars with maglev trains.">
+<meta name="author" content="kbrecordzz">
 
+<style>
+@font-face { font-family: 'kbfont'; src: url('files/TT2020StyleE-Regular_smaller2.ttf') format('truetype'); }
+body { background-image: url("files/sachiko.jpg"); background-attachment: fixed; background-size: cover; color: white; font-family: Georgia; line-height: 140%; }
+.column { flex: 1; }
+h2 { font-family: 'kbfont'; margin-bottom: 7px; }
+hey { font-family: 'kbfont'; font-size: 18; }
+a { font-family: 'kbfont'; font-size: 18; padding-top: 4px; padding-bottom: 2px; color: #6DFA0F; }
+a:hover { text-decoration: none; }
+b { font-family: 'kbfont'; font-size: 18; }
+</style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="files/logo_kbr.ico">
+<head><title>This Is (NOT!) A Car Club</title></head>
+
+<center>
+<div style="display: flex; width: 100%; max-height: 15vh; max-width: 500px; margin: 0 auto;">
+<div class="column"><img style="max-width: 100%; max-height: 100px;" src=files/asdq_credits.png></img></div>
+<div class="column"><hey>EPISODE:<br><b>[1]</b> <a target=_blank href="index2.html">2</a> <a target=_blank href="index3.html">3</a></hey> - <a target=_blank href="info.html">INFO</a></div>
+</div>
+
+<iframe id="iframe" scrolling="auto" style="margin: 7px; width: 96%; max-width: 1000px; height: 85vh; max-height: 700px;" src="game.html"></iframe>
+
+<div style="width: 100%; max-width: 600px; margin: 0 auto;">
+<br><a style="font-size: 24 !important;" target=_blank href="info.html">What is this?</a>
+</div>
+
+<div style="width: 100%; max-width: 600px; margin: 0 auto;">
+<br>Made by<br><a target=_blank href="https://kbrecordzz.com"><img width=185 src="files/cropped-test-6.jpg"></img></a>
+<br><br><i>(background image by <a target=_blank href="https://www.instagram.com/sachikomiliart/">sachikomiliart</a>)</i><br><br>
+</div>
+
+<!-- get ?& parameters from URL and put it into the iframe URL as well -->
 <script>
-function getParameterByName(name) {
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get(name);
-}
-
-var val = getParameterByName('GIRL');
-if (val) {
-document.cookie = "GIRL_COOKIE=" + encodeURIComponent(val) + "; expires=" + new Date(Date.now() + 31536000000).toUTCString();
-}
-
-var fromcookie = decodeURIComponent(document.cookie.replace(/(?:(?:^|.*;\s*)GIRL_COOKIE\s*=\s*([^;]*).*$)|^.*$/, "$1"));
-var newElement = document.createElement('p');
-  newElement.textContent = "GIRL COOKIE = " + fromcookie;
-  document.body.appendChild(newElement);
+document.getElementById("iframe").src = "game.html" + location.search;
 </script>
