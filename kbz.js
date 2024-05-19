@@ -22,8 +22,8 @@ scene.fog = new THREE.Fog();
 var loader = new THREE.TextureLoader();
 
 // these are here to be loaded as early as possible
-var mat_skybox = new THREE.MeshLambertMaterial({map: loader.load("files/blue.jpg"), side: THREE.BackSide}); mat_skybox.color = new THREE.Color(0x88DDFF);
-var mat_cloudbox = new THREE.MeshLambertMaterial({map: loader.load("files/clouds.png"), side: THREE.DoubleSiide, transparent: true});
+var mat_skybox = new THREE.MeshLambertMaterial({map: loader.load("blue.jpg"), side: THREE.BackSide}); mat_skybox.color = new THREE.Color(0x88DDFF);
+var mat_cloudbox = new THREE.MeshLambertMaterial({map: loader.load("clouds.png"), side: THREE.DoubleSiide, transparent: true});
 mat_skybox.map.wrapS = THREE.MirroredRepeatWrapping;
 mat_skybox.map.wrapT = THREE.MirroredRepeatWrapping;
 mat_skybox.map.repeat.set(8,4);
@@ -128,7 +128,7 @@ const mesh_logo = new THREE.Mesh(new THREE.BoxGeometry(2,1.33,0.3), new THREE.Me
 
 var rotationrikt = 0;
 
-const m2 = new THREE.Mesh(new THREE.BoxGeometry(2.01,1.33,0.29), new THREE.MeshPhongMaterial({map: loader.load("files/blackcover.jpg")}));
+const m2 = new THREE.Mesh(new THREE.BoxGeometry(2.01,1.33,0.29), new THREE.MeshPhongMaterial({map: loader.load("blackcover.jpg")}));
 scene.add(mesh_logo);
 mesh_logo.add(m2);
 mesh_logo.rotation.y -= 1;
