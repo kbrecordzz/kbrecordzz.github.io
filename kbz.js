@@ -57,7 +57,7 @@ var splashscreen_started		= false;
 // images, sounds, etc (files)
 // kbrecordzz 2023
 
-// det finns fel Å i namn tror jag!!
+// det finns fel Ã… i namn tror jag!!
 
 "use strict";
 
@@ -128,7 +128,7 @@ var f1;
 let iii = Math.random();
 f1 = "files/html5_cover5.png";
 
-const mat_logo = new THREE.MeshPhongMaterial({map: loader.load("files/html5_cover2.png")});
+const mat_logo = new THREE.MeshPhongMaterial({map: loader.load("ep3.png")});
 mat_logo.map.repeat.set(1,1);
 mat_logo.map.wrapS = THREE.MirroredRepeatWrapping;
 mat_logo.map.wrapT = THREE.MirroredRepeatWrapping;
