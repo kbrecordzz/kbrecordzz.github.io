@@ -124,15 +124,7 @@ function tex(file, r1, r2, mirrored)
 }
 
 // intro logo
-var f1;
-let iii = Math.random();
-f1 = "files/html5_cover5.png";
-
-const mat_logo = new THREE.MeshPhongMaterial({map: loader.load("ep3.png")});
-mat_logo.map.repeat.set(1,1);
-mat_logo.map.wrapS = THREE.MirroredRepeatWrapping;
-mat_logo.map.wrapT = THREE.MirroredRepeatWrapping;
-const mesh_logo = new THREE.Mesh(new THREE.BoxGeometry(2,1.33,0.3), new THREE.MeshPhongMaterial({map: loader.load(f1)}));
+const mesh_logo = new THREE.Mesh(new THREE.BoxGeometry(2,1.33,0.3), new THREE.MeshPhongMaterial({map: loader.load("ep3.png")}));
 
 var rotationrikt = 0;
 
