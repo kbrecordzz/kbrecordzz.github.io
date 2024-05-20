@@ -304,7 +304,7 @@ function main()
 			"visibility: visible; position: absolute; top: 5%; left: 50%; transform: translateX(-50%); image-rendering: pixelated; height: 13vh;";
 
 		document.getElementById("by").style = 
-			"visibility: visible; position: absolute; top: 18%; left: 50%; transform: translateX(-50%); width: 90%;";
+			"visibility: visible; position: absolute; top: 18%; left: 50%; transform: translateX(-50%);";
 		document.getElementById("by_text").style = 
 			"font-size: 2vh;";
 		document.getElementById("by_image").style = 
