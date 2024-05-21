@@ -57,7 +57,7 @@ var splashscreen_started		= false;
 // images, sounds, etc (files)
 // kbrecordzz 2023
 
-// det finns fel Å i namn tror jag!!
+// det finns fel � i namn tror jag!!
 
 "use strict";
 
@@ -143,6 +143,7 @@ player.visible = false;
 
 var lz = new THREE.PointLight(0xFFD700, 0.3);
 scene.add(lz);
+lz.intensity = 1.5;
 
 var mesh_sun = new THREE.Mesh(new THREE.SphereGeometry(8, 32, 32), tex("sun.jpg"));
 scene.add(mesh_sun);
@@ -275,6 +276,19 @@ else mobile = true;
 
 lz.position.set(camera.position.x,camera.position.y,camera.position.z);
 
+// COLOR BASED ON TIME OF DAY
+var timeofday = new Date().getHours();
+console.log("timeofday: " + timeofday);
+light.intensity = 0.87*(Math.sin(Math.PI*timeofday/24)) + 0.6;
+lz.intensity = 0.87*(Math.sin(Math.PI*timeofday/24)) + 0.6;
+
+// sunset
+let light_red = 0xEF;
+let light_green = 0x5F + 0xFF * 0.5 * Math.sin(Math.PI*timeofday/24+0.2);
+let light_blue = 0x5F + 0xFF * 0.5 * Math.sin(Math.PI*timeofday/24)+0.2;
+let light_color = new THREE.Color(light_red/255, light_green/255, light_blue/255);
+light.color.set(light_color);
+
 // main game loop
 function main()
 {
@@ -282,7 +296,6 @@ function main()
 	lz.position.y += 0.01;
 	lz.position.z += 0.01;
 
-	lz.intensity = 1.5;
 	lz.rotation.y += 1;
 
 	// override in cut_set() if you want to change:
