@@ -2,8 +2,9 @@
 
 <style>
 @font-face { font-family: 'kbfont'; src: url('TT2020StyleE-Regular_smaller2.ttf') format('truetype'); }
-hey { font-family: 'kbfont'; }
-a { font-family: 'kbfont'; padding-top: 4px; padding-bottom: 2px; color: #9DFF2F; }
+hey { font-family: 'kbfont'; color: white; }
+a { font-family: 'kbfont'; padding-top: 0.6vh; padding-bottom: 1.2vh; color: #9DFF2F; text-decoration: underline; text-underline-offset: 0.5vh; }
+p { margin-top: 1.5vh; margin-bottom: 1.3vh; line-height: 2.5vh; }
 </style>
 
 <html>
@@ -14,16 +15,19 @@ a { font-family: 'kbfont'; padding-top: 4px; padding-bottom: 2px; color: #9DFF2F
 		<title>kbz.se</title>
 	</head>
 
-	<img id="title" style="position: absolute; visibility: hidden;" src="style(1).png">
+	<img id="title" style="position: absolutele; visibility: hidden;" src="style(1).png">
 	<hey id="by" style="position: absolute; visibility: hidden;"><hey id="by_text">by </hey><a target=_blank href="https://kbrecordzz.com/"><img id="by_image" height=25px src="http://kbrecordzz.com/kbrecordzz/images/cropped-test-6.gif"></a></hey>
 
-	<a target=_blank href="https://notacarclub.kbrecordzz.com/">
-	<center><hey id="notacarclub" style="position: absolute; visibility: hidden;"><img id="notacarclub_open" src="https://static.thenounproject.com/png/299638-200.png"> This Is (NOT!) A Car Club</hey></center>
+	<center><hey id="notacarclub" style="position: absolute; visibility: hidden;"><a target=_blank href="https://notacarclub.kbrecordzz.com/" style="text-underline-offset: 1vh;">This Is (NOT!) A Car Club</a><p><hey id="notacarclub_description">Comedy adventure game</hey></p></hey></center>
 	</a>
-	<center>hej</center>
+	
+	<center><hey id="snowboard" style="position: absolute; visibility: hidden;"><a target=_blank href="https://snowboard.kbrecordzz.com/" style="line-height: 4vh; text-underline-offset: 1vh;">Adele Savage's<br>Legendary Snowboarding<br>Camp</a><p><hey id="snowboard_description">Coming at some time!</hey></p></hey></center>
+	
+	<hey id="about" style="position: absolute; visibility: hidden;">A web game console by <a target=_blank href="https://kbrecordzz.com/">kbrecordzz</a></hey>
 
 	<!-- this prevents text highlighting -->
-	<body style="-webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; background-color: #73205D; margin: 0;">
+	<!-- <body style="-webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;"> -->
+	<body style="background-color: #73205D; margin: 0;">
 		<script src="three.min.js"></script>			<!-- r113? yes, probably. or r111 -->
 		<script src="kbz.js?v=331"></script>	
 	</body>
