@@ -284,7 +284,7 @@ else mobile = true;
 lz.position.set(camera.position.x,camera.position.y,camera.position.z);
 
 // COLOR BASED ON TIME OF DAY
-var timeofday = new Date().getHours();
+var timeofday = 15;//new Date().getHours();
 console.log("timeofday: " + timeofday);
 light.intensity = 0.87*(Math.sin(Math.PI*timeofday/24)) + 0.6;
 lz.intensity = 0.87*(Math.sin(Math.PI*timeofday/24)) + 0.6;
@@ -436,7 +436,7 @@ function main()
 	camera.position.y = sealevel+1+5;
 	camera.rotation.set(0, camera.rotation.y, 0);
 
-	mesh_skybox.position.set(camera.position.x, sealevel-0.4*0.5*(Math.sin(Math.PI*frame_counter/FRAMES_PER_DAY)), camera.position.z);
+//	mesh_skybox.position.set(camera.position.x, sealevel-0.4*0.5*(Math.sin(Math.PI*frame_counter/FRAMES_PER_DAY)), camera.position.z);
 	mesh_cloudbox.position.set(camera.position.x, mesh_skybox.position.y+20, camera.position.z);
 	mesh_cloudbox2.position.set(camera.position.x, mesh_skybox.position.y, camera.position.z);
 
