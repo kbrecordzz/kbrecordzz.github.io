@@ -22,7 +22,6 @@ scene.fog = new THREE.Fog();
 var loader = new THREE.TextureLoader();
 
 // these are here to be loaded as early as possible
-var mat_skybox = new THREE.MeshLambertMaterial({map: loader.load("blue.jpg"), side: THREE.BackSide}); mat_skybox.color = new THREE.Color(0x88DDFF);
 var mat_cloudbox = new THREE.MeshLambertMaterial({map: loader.load("http://kbrecordzz.com/kbrecordzz/images/cropped-test-6.gif"), side: THREE.DoubleSiide, transparent: true});
 mat_cloudbox.map.minFilter = THREE.NearestFilter;
 mat_cloudbox.map.magFilter = THREE.NearestFilter;
@@ -31,9 +30,7 @@ mat_cloudbox.opacity = 0.75;
 mat_cloudbox.map.wrapS = THREE.MirroredRepeatWrapping;
 mat_cloudbox.map.wrapT = THREE.MirroredRepeatWrapping;
 mat_cloudbox.map.repeat.set(0.1,0.1);
-var geometry_skybox;
 var geometry_cloudbox;
-var mesh_skybox;
 var mesh_cloudbox;
 var mesh_cloudbox2;
 
@@ -130,16 +127,19 @@ function tex(file, r1, r2, mirrored)
 
 // intro logo
 const mesh_logo = new THREE.Mesh(new THREE.BoxGeometry(2,1.33,0.3), new THREE.MeshPhongMaterial({map: loader.load("ep3.png")}));
-
 var rotationrikt = 0;
-
 const m2 = new THREE.Mesh(new THREE.BoxGeometry(2.01,1.33,0.29), new THREE.MeshPhongMaterial({map: loader.load("blackcover.jpg")}));
 scene.add(mesh_logo);
 mesh_logo.add(m2);
 mesh_logo.rotation.y -= 1;
-
 mesh_logo.name = "NOTACARCLUB";
 m2.name = "NOTACARCLUB";
+
+const mesh_snowboard = new THREE.Mesh(new THREE.PlaneGeometry(1.5,0.7), new THREE.MeshPhongMaterial({map: loader.load("legendary_logo.png"), transparent: true}));
+var rotationrikt2 = 0;
+scene.add(mesh_snowboard);
+mesh_snowboard.rotation.y += 2.25;
+mesh_snowboard.name = "SNOWBOARD";
 
 
 // cars must be created after cz sprites so they get drawn in the correct order
@@ -179,6 +179,9 @@ function onMouseMove(event)
 		const firstObject = intersects[0].object;
 		if (firstObject.name === "NOTACARCLUB") { mesh_logo.material.color = new THREE.Color(0x99FF66); document.body.style.cursor = "pointer"; }
 		else { mesh_logo.material.color = new THREE.Color(0xFFFFFF); document.body.style.cursor = "default"; }
+		
+		if (firstObject.name === "SNOWBOARD") { mesh_snowboard.material.color = new THREE.Color(0x99FF66); document.body.style.cursor = "pointer"; }
+		else { mesh_snowboard.material.color = new THREE.Color(0xFFFFFF); document.body.style.cursor = "default"; }
 	}
 }
 window.addEventListener('mousemove', onMouseMove, false);
@@ -213,6 +216,7 @@ function touch_end(event)
 		if (intersects.length > 0 && intersects2.length > 0)
 		{
 			if (intersects[0].object.name === "NOTACARCLUB" && intersects2[0].object.name === "NOTACARCLUB") window.open("https://notacarclub.kbrecordzz.com/", "_blank");
+			else if (intersects[0].object.name === "SNOWBOARD" && intersects2[0].object.name === "SNOWBOARD") window.open("https://snowboard.kbrecordzz.com/", "_blank");
 		}
 	}
 }
@@ -240,6 +244,7 @@ function mouseUp(event)
 			if (intersects.length > 0)
 			{
 				if (intersects[0].object.name === "NOTACARCLUB") window.open("https://notacarclub.kbrecordzz.com/", "_blank");
+				else if (intersects[0].object.name === "SNOWBOARD") window.open("https://snowboard.kbrecordzz.com/", "_blank");
 			}
 		}
 	}
@@ -255,15 +260,12 @@ document.addEventListener("mouseup", mouseUp);
 cloudbox_animate = 0.2;
 
 //					     radius top		radius bot	height		segments
-geometry_skybox = new THREE.CylinderGeometry(120,		120,		50*8,		32);
 geometry_cloudbox = new THREE.CylinderGeometry(120,		119.8,		1,		32);
 
 // materials are loaded in beginning of ascend.js!
 
-mesh_skybox = new THREE.Mesh(geometry_skybox, mat_skybox);
 mesh_cloudbox = new THREE.Mesh(geometry_cloudbox, mat_cloudbox);
 mesh_cloudbox2 = new THREE.Mesh(geometry_cloudbox, mat_cloudbox);
-//scene.add(mesh_skybox);
 scene.add(mesh_cloudbox);
 scene.add(mesh_cloudbox2);
 
@@ -376,6 +378,9 @@ function main()
 	{
 		mesh_logo.scale.set(0.8,0.8,0.8);
 		mesh_logo.position.set(camera.position.x-3, camera.position.y+0.35, camera.position.z+2.66);
+		
+		mesh_snowboard.scale.set(0.7,0.7,0.7);
+		mesh_snowboard.position.set(camera.position.x-3, camera.position.y-0.5, camera.position.z+1);
 
 		document.getElementById("title").style = 
 			"visibility: visible; position: absolute; top: 5%; left: 50%; transform: translateX(-50%); image-rendering: pixelated; height: 13vh;";
@@ -401,8 +406,9 @@ function main()
 	}
 	//
 
-	mesh_logo.visible = true;
+//	mesh_logo.visible = true;
 
+  // rotate logos
 	if (rotationrikt === 0)
 	{
 		mesh_logo.rotation.y += 0.001;
@@ -410,11 +416,20 @@ function main()
 	}
 	if (rotationrikt === 1)
 	{
-		mesh_logo.rotation.y -= 0.001;
+		mesh_logo.rotation.y -= 0.001
 		if (mesh_logo.rotation.y < -1) rotationrikt = 0;
 	}
-
-	mesh_skybox.rotation.y += 0.001;
+	
+	if (rotationrikt2 === 0)
+	{
+		mesh_snowboard.rotation.y += 0.003;
+		if (mesh_snowboard.rotation.y > 2.7) rotationrikt2 = 1;
+	}
+	if (rotationrikt2 === 1)
+	{
+		mesh_snowboard.rotation.y -= 0.003;
+		if (mesh_snowboard.rotation.y < 1.3) rotationrikt2 = 0;
+	}
 
 	if (mobile === true) renderer.setPixelRatio(window.devicePixelRatio*0.3);
 	else renderer.setPixelRatio(window.devicePixelRatio*0.7);
@@ -436,9 +451,8 @@ function main()
 	camera.position.y = sealevel+1+5;
 	camera.rotation.set(0, camera.rotation.y, 0);
 
-//	mesh_skybox.position.set(camera.position.x, sealevel-0.4*0.5*(Math.sin(Math.PI*frame_counter/FRAMES_PER_DAY)), camera.position.z);
-	mesh_cloudbox.position.set(camera.position.x, mesh_skybox.position.y+20, camera.position.z);
-	mesh_cloudbox2.position.set(camera.position.x, mesh_skybox.position.y, camera.position.z);
+	mesh_cloudbox.position.set(camera.position.x, camera.position.y+20, camera.position.z);
+	mesh_cloudbox2.position.set(camera.position.x, camera.position.y-15, camera.position.z);
 
 	if (cloudbox_animate < 1) cloudbox_animate += 0.00003; else cloudbox_animate = 0;
 	mat_cloudbox.map.offset.set(cloudbox_animate, cloudbox_animate);
