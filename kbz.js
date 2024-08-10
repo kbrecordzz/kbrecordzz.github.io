@@ -201,8 +201,6 @@ document.addEventListener("mouseup", mouseUp);
 //					     radius top		radius bot	height		segments
 geometry_cloudbox = new THREE.CylinderGeometry(120,		119.8,		1,		32);
 
-// materials are loaded in beginning of ascend.js!
-
 mesh_cloudbox = new THREE.Mesh(geometry_cloudbox, mat_cloudbox);
 mesh_cloudbox2 = new THREE.Mesh(geometry_cloudbox, mat_cloudbox);
 scene.add(mesh_cloudbox);
@@ -212,8 +210,8 @@ scene.add(mesh_cloudbox2);
 renderer = new THREE.WebGLRenderer({antialias: true});
 document.body.appendChild(renderer.domElement);		// canvas from webGLrenderer() is added to HTML document
 
-player.position.x = 34*49+25;
-player.position.z = 37*49+25;
+player.position.x = 1691;
+player.position.z = 1838;
 
 if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) mobile = false;	// ej klockren!
 else mobile = true;
