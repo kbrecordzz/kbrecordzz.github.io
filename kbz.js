@@ -8,28 +8,23 @@ scene.background = new THREE.Color(0x73205D);
 var camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 2, 1250);
 var renderer;
 
-var light = new THREE.AmbientLight(0xFFFFD5, 1.31);
-scene.add(light);
-
 var loader = new THREE.TextureLoader();
 
 // these are here to be loaded as early as possible
-var mat_cloudbox = new THREE.MeshLambertMaterial({map: loader.load("cropped-test-6.gif"), side: THREE.DoubleSiide, transparent: true});
+var mat_cloudbox = new THREE.MeshLambertMaterial({map: loader.load("cropped-test-6.gif"), transparent: true});
 mat_cloudbox.map.minFilter = THREE.NearestFilter;
 mat_cloudbox.map.magFilter = THREE.NearestFilter;
 mat_cloudbox.transparent = true;
 mat_cloudbox.opacity = 0.75;
-mat_cloudbox.map.wrapS = THREE.MirroredRepeatWrapping;
-mat_cloudbox.map.wrapT = THREE.MirroredRepeatWrapping;
 mat_cloudbox.map.repeat.set(0.1,0.1);
-var geometry_cloudbox;
-var mesh_cloudbox;
-var mesh_cloudbox2;
+//					                               radius top	 radius bot	height	segments
+var geometry_cloudbox = new THREE.CylinderGeometry(120,		119.8,		1,		32);
+var mesh_cloudbox = new THREE.Mesh(geometry_cloudbox, mat_cloudbox);
+var mesh_cloudbox2 = new THREE.Mesh(geometry_cloudbox, mat_cloudbox);
+scene.add(mesh_cloudbox);
+scene.add(mesh_cloudbox2);
 
-var cloudbox_animate = 0.2;
-
-const FRAMES_PER_HOUR			= 834;
-const FRAMES_PER_DAY			= 20000;
+var cloudbox_animate = 0.2; 
 
 var mobile = false;
 
@@ -55,9 +50,25 @@ mesh_snowboard.rotation.y += 2.25;
 mesh_snowboard.name = "SNOWBOARD";
 
 
-var lz = new THREE.PointLight(0xFFD700, 0.3);
-scene.add(lz);
-lz.intensity = 1.5;
+// create actual 3d canvas (after splash screen)
+renderer = new THREE.WebGLRenderer({antialias: true});
+document.body.appendChild(renderer.domElement);		// canvas from webGLrenderer() is added to HTML document
+
+if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) mobile = false;	// ej klockren!
+else mobile = true;
+
+var light = new THREE.AmbientLight(new THREE.Color(0.94, 0.79, 0.84), 1.4);
+scene.add(light);
+
+camera.rotation.y = 2.2933;
+
+camera.position.x = 1691;
+camera.position.z = 1838;
+camera.position.y = 5;
+
+mesh_cloudbox.position.set(camera.position.x, camera.position.y+20, camera.position.z);
+mesh_cloudbox2.position.set(camera.position.x, camera.position.y-15, camera.position.z);
+
 
 var eventlock = "";		// for deciding if mouse or touch should be used (only ONE of them!)
 
@@ -152,37 +163,10 @@ function mouseUp(event)
 }
 document.addEventListener("mouseup", mouseUp);
 
-//					     radius top		radius bot	height		segments
-geometry_cloudbox = new THREE.CylinderGeometry(120,		119.8,		1,		32);
-
-mesh_cloudbox = new THREE.Mesh(geometry_cloudbox, mat_cloudbox);
-mesh_cloudbox2 = new THREE.Mesh(geometry_cloudbox, mat_cloudbox);
-scene.add(mesh_cloudbox);
-scene.add(mesh_cloudbox2);
-
-// create actual 3d canvas (after splash screen)
-renderer = new THREE.WebGLRenderer({antialias: true});
-document.body.appendChild(renderer.domElement);		// canvas from webGLrenderer() is added to HTML document
-
-if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) mobile = false;	// ej klockren!
-else mobile = true;
-
-lz.position.set(camera.position.x,camera.position.y,camera.position.z);
-
-light.intensity = 1.4;
-lz.intensity = 1.4;
-
-light.color.set(new THREE.Color(0.94, 0.79, 0.84));
 
 // main game loop
 function main()
 {
-	lz.position.x += 0.01;
-	lz.position.y += 0.01;
-	lz.position.z += 0.01;
-
-	lz.rotation.y += 1;
-
 	// LAYOUT
 	// portrait
 	if (window.innerHeight > window.innerWidth)
@@ -297,22 +281,12 @@ function main()
 		if (mesh_snowboard.rotation.y < 1.3) rotationrikt2 = 0;
 	}
 
-	if (mobile === true) renderer.setPixelRatio(window.devicePixelRatio*0.3);
-	else renderer.setPixelRatio(window.devicePixelRatio*0.7);
+	if (mobile === true) renderer.setPixelRatio(window.devicePixelRatio*0.4);
+	else renderer.setPixelRatio(window.devicePixelRatio*0.8);
 
 	camera.aspect = window.innerWidth/window.innerHeight;
 	camera.updateProjectionMatrix();
 	renderer.setSize(window.innerWidth, window.innerHeight);
-
-	camera.rotation.y = Math.PI*0.73;
-
-	camera.position.x = 1691;
-	camera.position.z = 1838;
-	camera.position.y = 5;
-	camera.rotation.set(0, camera.rotation.y, 0);
-
-	mesh_cloudbox.position.set(camera.position.x, camera.position.y+20, camera.position.z);
-	mesh_cloudbox2.position.set(camera.position.x, camera.position.y-15, camera.position.z);
 
 	if (cloudbox_animate < 1) cloudbox_animate += 0.00003; else cloudbox_animate = 0;
 	mat_cloudbox.map.offset.set(cloudbox_animate, cloudbox_animate);
