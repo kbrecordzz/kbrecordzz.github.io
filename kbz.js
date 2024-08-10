@@ -420,12 +420,12 @@ function main()
 	camera.updateProjectionMatrix();
 	renderer.setSize(window.innerWidth, window.innerHeight);
 
-	camera = camera_splashscreen;
-	if (splashscreen_started === false)
-	{
-		camera.rotation.y = Math.PI*0.73;
-		splashscreen_started = true;
-	}
+//	camera = camera_splashscreen;
+//	if (splashscreen_started === false)
+//	{
+//		camera.rotation.y = Math.PI*0.73;
+//		splashscreen_started = true;
+//	}
 
 	camera.position.x = player.position.x;
 	camera.position.z = player.position.z;
