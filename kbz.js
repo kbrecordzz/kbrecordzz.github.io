@@ -3,8 +3,6 @@
 
 "use strict";
 
-var starttime = performance.now();
-
 var scene = new THREE.Scene();
 scene.background = new THREE.Color(0x73205D);
 var camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 2, 1250);
@@ -16,7 +14,7 @@ scene.add(light);
 var loader = new THREE.TextureLoader();
 
 // these are here to be loaded as early as possible
-var mat_cloudbox = new THREE.MeshLambertMaterial({map: loader.load("http://kbrecordzz.com/kbrecordzz/images/cropped-test-6.gif"), side: THREE.DoubleSiide, transparent: true});
+var mat_cloudbox = new THREE.MeshLambertMaterial({map: loader.load("cropped-test-6.gif"), side: THREE.DoubleSiide, transparent: true});
 mat_cloudbox.map.minFilter = THREE.NearestFilter;
 mat_cloudbox.map.magFilter = THREE.NearestFilter;
 mat_cloudbox.transparent = true;
@@ -29,8 +27,6 @@ var mesh_cloudbox;
 var mesh_cloudbox2;
 
 var cloudbox_animate;
-
-var sealevel = -1;
 
 // level start point
 var start_chunk_x = 34;
@@ -67,7 +63,7 @@ var startcut;
 var start_hour;
 var move_player = true;
 var lookheight = 0;
-var splashscreen_click_starttime = 0;
+var splashscreen_click_ = 0;
 
 var camera_strive_x = 0;
 var camera_strive_z = 0;
@@ -441,8 +437,7 @@ function main()
 
 	camera.position.x = player.position.x;
 	camera.position.z = player.position.z;
-	//	if (height_get(camera)+5 >= sealevel+1) camera.position.y = height_get(camera)+5;
-	camera.position.y = sealevel+1+5;
+	camera.position.y = 5;
 	camera.rotation.set(0, camera.rotation.y, 0);
 
 	mesh_cloudbox.position.set(camera.position.x, camera.position.y+20, camera.position.z);
