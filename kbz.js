@@ -297,14 +297,6 @@ function main()
 
 	lz.rotation.y += 1;
 
-	// override in cut_set() if you want to change:
-	camera_cutscene.fov = 60;
-	lookheight = 0;
-	move_player = false;
-	from_x = 0;
-	from_z = 0;
-	from_y = 0;
-
 	// LAYOUT
 	// portrait
 	if (window.innerHeight > window.innerWidth)
