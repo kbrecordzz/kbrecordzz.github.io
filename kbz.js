@@ -26,7 +26,7 @@ var geometry_cloudbox;
 var mesh_cloudbox;
 var mesh_cloudbox2;
 
-var cloudbox_animate;
+var cloudbox_animate = 0.2;
 
 // level start point
 var start_chunk_x = 34;
@@ -34,10 +34,6 @@ var start_chunk_z = 37;
 
 var frame_counter;
 
-// functions.js
-// game functions
-// kbrecordzz 2023
-"use strict";
 const MODULUS_FREEROAM_OR_RACE		= 50;
 const MODULUS_FREEROAM_ONLY		= 100;
 const FRAMES_PER_HOUR			= 834;
@@ -45,18 +41,7 @@ const FRAMES_PER_DAY			= 20000;
 var CUT_SPLASHSCREEN			= -2;
 var splashscreen_started		= false;
 
-// basic.js
-// images, sounds, etc (files)
-// kbrecordzz 2023
-
-// det finns fel � i namn tror jag!!
-
-"use strict";
-
 var mobile = false;
-
-// DEBUG
-var game_speed = 1;
 
 var cut;
 var startcut;
@@ -139,14 +124,6 @@ player.visible = false;
 var lz = new THREE.PointLight(0xFFD700, 0.3);
 scene.add(lz);
 lz.intensity = 1.5;
-
-//var mesh_sun = new THREE.Mesh(new THREE.SphereGeometry(8, 32, 32), tex("sun.jpg"));
-//scene.add(mesh_sun);
-// input.js
-// user input
-// kbrecordzz 2023
-
-"use strict";
 
 var eventlock = "";		// for deciding if mouse or touch should be used (only ONE of them!)
 
@@ -240,14 +217,6 @@ function mouseUp(event)
 	}
 }
 document.addEventListener("mouseup", mouseUp);
-
-// main.js
-// the main game loop
-// kbrecordzz 2023
-
-"use strict";
-
-cloudbox_animate = 0.2;
 
 //					     radius top		radius bot	height		segments
 geometry_cloudbox = new THREE.CylinderGeometry(120,		119.8,		1,		32);
@@ -419,13 +388,6 @@ function main()
 	camera.aspect = window.innerWidth/window.innerHeight;
 	camera.updateProjectionMatrix();
 	renderer.setSize(window.innerWidth, window.innerHeight);
-
-//	camera = camera_splashscreen;
-//	if (splashscreen_started === false)
-//	{
-//		camera.rotation.y = Math.PI*0.73;
-//		splashscreen_started = true;
-//	}
 
 	camera.position.x = player.position.x;
 	camera.position.z = player.position.z;
