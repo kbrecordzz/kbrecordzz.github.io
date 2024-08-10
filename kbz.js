@@ -304,6 +304,8 @@ function main()
 	camera.updateProjectionMatrix();
 	renderer.setSize(window.innerWidth, window.innerHeight);
 
+	camera.rotation.y = Math.PI*0.73;
+
 	camera.position.x = 1691;
 	camera.position.z = 1838;
 	camera.position.y = 5;
