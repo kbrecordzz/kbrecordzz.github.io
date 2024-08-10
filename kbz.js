@@ -37,24 +37,6 @@ var camera_strive_x = 0;
 var camera_strive_z = 0;
 var camera_strive_y = 0;
 
-// create sprite
-function spr(file, size, width)
-{
-	// standard values (for IE)
-	if (!(size >= 0)) size = 1;
-	if (!(width >= 0)) width = size;
-
-	let material = new THREE.SpriteMaterial({map: loader.load("files/" + file)});
-	material.map.minFilter = THREE.NearestFilter;
-	material.map.magFilter = THREE.NearestFilter; // this turns off the blurriness of the pixel art
-	material.alphaTest = 0.5;
-	let sprite = new THREE.Sprite(material);
-	sprite.scale.set(width, size, size);
-	scene.add(sprite);
-	sprite.visible = false;
-	return sprite;
-}
-
 // create texture material
 function tex(file, r1, r2, mirrored)
 {
@@ -96,10 +78,6 @@ scene.add(mesh_snowboard);
 mesh_snowboard.rotation.y += 2.25;
 mesh_snowboard.name = "SNOWBOARD";
 
-
-// cars must be created after cz sprites so they get drawn in the correct order
-const player				= spr("blackcover.jpg");
-player.visible = false;
 
 var lz = new THREE.PointLight(0xFFD700, 0.3);
 scene.add(lz);
@@ -209,9 +187,6 @@ scene.add(mesh_cloudbox2);
 // create actual 3d canvas (after splash screen)
 renderer = new THREE.WebGLRenderer({antialias: true});
 document.body.appendChild(renderer.domElement);		// canvas from webGLrenderer() is added to HTML document
-
-player.position.x = 1691;
-player.position.z = 1838;
 
 if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) mobile = false;	// ej klockren!
 else mobile = true;
@@ -355,8 +330,8 @@ function main()
 	camera.updateProjectionMatrix();
 	renderer.setSize(window.innerWidth, window.innerHeight);
 
-	camera.position.x = player.position.x;
-	camera.position.z = player.position.z;
+	camera.position.x = 1691;
+	camera.position.z = 1838;
 	camera.position.y = 5;
 	camera.rotation.set(0, camera.rotation.y, 0);
 
