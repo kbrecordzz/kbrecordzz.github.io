@@ -1,23 +1,17 @@
-// ascend.js
-// creates, and shows and hides terrain chunks and objects (trees, houses, etc)
-// kbrecordzz 2023
+// kbz.js
+// kbrecordzz 2024
 
 "use strict";
 
 var starttime = performance.now();
 
-// SCENE, CAMERAS, HTML CANVASES, LIGHTS, FOGS
 var scene = new THREE.Scene();
 scene.background = new THREE.Color(0x73205D);
-var camera_main = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 2, 1250);
-var camera_splashscreen = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1250);
-var camera_cutscene = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1250);
-var camera = camera_main;
+var camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 2, 1250);
 var renderer;
 
 var light = new THREE.AmbientLight(0xFFFFD5, 1.31);
 scene.add(light);
-scene.fog = new THREE.Fog();
 
 var loader = new THREE.TextureLoader();
 
