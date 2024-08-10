@@ -215,8 +215,6 @@ document.body.appendChild(renderer.domElement);		// canvas from webGLrenderer() 
 player.position.x = 34*49+25;
 player.position.z = 37*49+25;
 
-cut = CUT_SPLASHSCREEN;
-
 if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) mobile = false;	// ej klockren!
 else mobile = true;
 
