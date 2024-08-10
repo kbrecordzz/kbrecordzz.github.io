@@ -33,19 +33,9 @@ const FRAMES_PER_DAY			= 20000;
 
 var mobile = false;
 
-var cut;
-var startcut;
-var start_hour;
-var move_player = true;
-var lookheight = 0;
-var splashscreen_click_ = 0;
-
 var camera_strive_x = 0;
 var camera_strive_z = 0;
 var camera_strive_y = 0;
-var from_x = 0;
-var from_z = 0;
-var from_y = 0;
 
 // create sprite
 function spr(file, size, width)
@@ -108,7 +98,7 @@ mesh_snowboard.name = "SNOWBOARD";
 
 
 // cars must be created after cz sprites so they get drawn in the correct order
-const player				= spr("bomb.png");
+const player				= spr("blackcover.jpg");
 player.visible = false;
 
 var lz = new THREE.PointLight(0xFFD700, 0.3);
