@@ -37,30 +37,6 @@ var camera_strive_x = 0;
 var camera_strive_z = 0;
 var camera_strive_y = 0;
 
-// create texture material
-function tex(file, r1, r2, mirrored)
-{
-	// standard values (for IE)
-	if (!(r1 >= -10)) r1 = 1;
-	if (!(r2 >= -10)) r2 = 1;
-	if (mirrored !== false && mirrored !== true) mirrored = false;
-
-	let material;
-	material = new THREE.MeshLambertMaterial({map: loader.load("files/" + file)});
-	material.map.repeat.set(r1,r2);
-	if (mirrored === true)
-	{
-		material.map.wrapS = THREE.MirroredRepeatWrapping;
-		material.map.wrapT = THREE.MirroredRepeatWrapping;
-	}
-	else
-	{
-		material.map.wrapS = THREE.RepeatWrapping;
-		material.map.wrapT = THREE.RepeatWrapping;
-	}
-	material.alphaTest = 0.5;
-	return material;
-}
 
 // intro logo
 const mesh_logo = new THREE.Mesh(new THREE.BoxGeometry(2,1.33,0.3), new THREE.MeshPhongMaterial({map: loader.load("ep3.png")}));
@@ -298,9 +274,7 @@ function main()
 	}
 	//
 
-//	mesh_logo.visible = true;
-
-  // rotate logos
+	// rotate logos
 	if (rotationrikt === 0)
 	{
 		mesh_logo.rotation.y += 0.001;
