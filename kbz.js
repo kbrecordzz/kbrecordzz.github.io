@@ -28,18 +28,8 @@ var mesh_cloudbox2;
 
 var cloudbox_animate = 0.2;
 
-// level start point
-var start_chunk_x = 34;
-var start_chunk_z = 37;
-
-var frame_counter;
-
-const MODULUS_FREEROAM_OR_RACE		= 50;
-const MODULUS_FREEROAM_ONLY		= 100;
 const FRAMES_PER_HOUR			= 834;
 const FRAMES_PER_DAY			= 20000;
-var CUT_SPLASHSCREEN			= -2;
-var splashscreen_started		= false;
 
 var mobile = false;
 
@@ -232,10 +222,8 @@ scene.add(mesh_cloudbox2);
 renderer = new THREE.WebGLRenderer({antialias: true});
 document.body.appendChild(renderer.domElement);		// canvas from webGLrenderer() is added to HTML document
 
-frame_counter = FRAMES_PER_HOUR*9;	// start game in the morning
-
-player.position.x = start_chunk_x*49+25;
-player.position.z = start_chunk_z*49+25;
+player.position.x = 34*49+25;
+player.position.z = 37*49+25;
 
 cut = CUT_SPLASHSCREEN;
 
