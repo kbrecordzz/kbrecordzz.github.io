@@ -53,14 +53,12 @@ function main()
 	// portrait
 	if (window.innerHeight > window.innerWidth)
 	{
-		document.getElementById("logo").style.width = "30vh";
 		document.getElementById("img1").style.width = "20vh";
 		document.getElementById("img2").style.width = "20vh";
 	}
 	// layout
 	else
 	{
-		document.getElementById("logo").style.width = "60vh";
 		document.getElementById("img1").style.width = "40vh";
 		document.getElementById("img2").style.width = "40vh";
 	}
