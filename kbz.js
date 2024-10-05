@@ -68,8 +68,6 @@ function main()
 		document.getElementById("img1").style.width = "40vh";
 		document.getElementById("img2").style.width = "40vh";
 	}
-	document.getElementById("img1").style.visibility = "visible";
-	document.getElementById("img2").style.visibility = "visible";
 	
 	if (mobile === true) renderer.setPixelRatio(window.devicePixelRatio*0.4);
 	else renderer.setPixelRatio(window.devicePixelRatio*0.8);
