@@ -171,10 +171,10 @@ function main()
 	// portrait
 	if (window.innerHeight > window.innerWidth)
 	{
-		mesh_logo.scale.set(0.3,0.3,0.3);
+		mesh_logo.scale.set(0.3,0.6,0.3);
 		mesh_logo.position.set(camera.position.x-3, camera.position.y+0.35, camera.position.z+2.66);
 
-		mesh_snowboard.scale.set(0.25,0.25,0.25);
+		mesh_snowboard.scale.set(0.25,0.5,0.25);
 		mesh_snowboard.position.set(camera.position.x-3, camera.position.y-0.5, camera.position.z+1);
 
 		document.getElementById("title").style = 
@@ -188,11 +188,11 @@ function main()
 			"position: relative; top: 1vh; height: 4vh;";
 
 		document.getElementById("notacarclub").style = 
-			"visibility: visible; position: absolute; top: 35%; left: 50%; transform: translateX(-50%); width: 75%; font-size: 2.5vh; line-height: 3vh; background-color: rgb(150,50,115,0.75); border: 1px solid #6DFA0F";
+			"visibility: visible; position: absolute; top: 30%; left: 60%; transform: translateX(-50%); width: 75%; font-size: 2.5vh; line-height: 3vh; background-color: rgb(150,50,115,0.75); border: 1px solid #6DFA0F";
 		document.getElementById("notacarclub_description").style.fontSize = "2vh";
 		
 		document.getElementById("snowboard").style = 
-			"visibility: visible; position: absolute; top: 55%; left: 50%; transform: translateX(-50%); width: 75%; font-size: 2.4vh; line-height: 3.3vh; background-color: rgb(150,50,115,0.75); border: 1px solid #6DFA0F";
+			"visibility: visible; position: absolute; top: 45%; left: 60%; transform: translateX(-50%); width: 75%; font-size: 2.25vh; line-height: 3.3vh; background-color: rgb(150,50,115,0.75); border: 1px solid #6DFA0F";
 		document.getElementById("snowboard_description").style.fontSize = "2vh";
 		
 		document.getElementById("about").style = 
