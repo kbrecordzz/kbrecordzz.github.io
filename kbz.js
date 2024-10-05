@@ -110,8 +110,6 @@ function touch_start(e)
 }
 document.addEventListener("touchstart", touch_start);
 
-mesh_logo.position.set(camera.position.x-3, camera.position.y+0.35, camera.position.z+2.66);
-
 function touch_end(event)
 {
 	if (eventlock === "touch")
@@ -174,10 +172,8 @@ function main()
 	// portrait
 	if (window.innerHeight > window.innerWidth)
 	{
-		mesh_logo.scale.set(0.3,0.6,0.3);
-
-		mesh_snowboard.scale.set(0.25,0.5,0.25);
-		mesh_snowboard.position.set(camera.position.x-3, camera.position.y-0.5, camera.position.z+1);
+		mesh_logo.visible = false;
+		mesh_snowboard.visible = false;
 
 		document.getElementById("title").style = 
 			"visibility: visible; position: absolute; top: 5%; left: 50%; transform: translateX(-50%); image-rendering: pixelated; height: 13vh;";
@@ -190,11 +186,11 @@ function main()
 			"position: relative; top: 1vh; height: 4vh;";
 
 		document.getElementById("notacarclub").style = 
-			"visibility: visible; position: absolute; top: 30%; left: 60%; transform: translateX(-50%); width: 75%; font-size: 2.5vh; line-height: 3vh; background-color: rgb(150,50,115,0.75); border: 1px solid #6DFA0F";
+			"visibility: visible; position: absolute; top: 30%; left: 50%; transform: translateX(-50%); width: 75%; font-size: 2.5vh; line-height: 3vh; padding-top: 1vh; padding-left: 1.5vh; padding-right: 1.5vh; background-color: rgb(150,50,115,0.75); border: 1px solid #6DFA0F";
 		document.getElementById("notacarclub_description").style.fontSize = "2vh";
 		
 		document.getElementById("snowboard").style = 
-			"visibility: visible; position: absolute; top: 45%; left: 60%; transform: translateX(-50%); width: 75%; font-size: 2.25vh; line-height: 3.3vh; background-color: rgb(150,50,115,0.75); border: 1px solid #6DFA0F";
+			"visibility: visible; position: absolute; top: 45%; left: 50%; transform: translateX(-50%); width: 75%; font-size: 2.5vh; line-height: 3.3vh; padding-top: 1vh; padding-left: 1.5vh; padding-right: 1.5vh; background-color: rgb(150,50,115,0.75); border: 1px solid #6DFA0F";
 		document.getElementById("snowboard_description").style.fontSize = "2vh";
 		
 		document.getElementById("about").style = 
@@ -206,6 +202,9 @@ function main()
 	// landscape (mobile)
 	if (mobile === true)
 	{
+		mesh_logo.visible = true;
+		mesh_snowboard.visible = true;
+		
 		mesh_logo.scale.set(1.35,1.35,1.35);
 		mesh_logo.position.set(camera.position.x-3, camera.position.y-0.23, camera.position.z+2.66);
 
@@ -236,6 +235,9 @@ function main()
 	// landscape (desktop)
 	else
 	{
+		mesh_logo.visible = true;
+		mesh_snowboard.visible = true;
+		
 		mesh_logo.scale.set(0.8,0.8,0.8);
 		mesh_logo.position.set(camera.position.x-3, camera.position.y+0.35, camera.position.z+2.66);
 		
