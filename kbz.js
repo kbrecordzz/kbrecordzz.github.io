@@ -29,8 +29,9 @@ var cloudbox_animate = 0.2;
 
 // create actual 3d canvas (after splash screen)
 renderer = new THREE.WebGLRenderer({antialias: true});
+renderer.domElement = document.getElementById("canvas");
 renderer.domElement.style = "position: absolute; top: 0; left: 0;";
-document.body.appendChild(renderer.domElement);		// canvas from webGLrenderer() is added to HTML document
+//document.body.appendChild(renderer.domElement);		// canvas from webGLrenderer() is added to HTML document
 
 var mobile;
 if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) mobile = false;	// ej klockren!
