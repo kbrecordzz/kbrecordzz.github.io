@@ -185,11 +185,11 @@ function main()
 			"position: relative; top: 1vh; height: 4vh;";
 
 		document.getElementById("notacarclub").style = 
-			"visibility: visible; position: absolute; top: 55%; left: 50%; transform: translateX(-50%); width: 90%; font-size: 2.5vh; line-height: 3vh; background-color: rgb(150,50,115,0.75); border: 1px solid #6DFA0F";
+			"visibility: visible; position: absolute; top: 25%; left: 50%; transform: translateX(-50%); width: 90%; font-size: 2.5vh; line-height: 3vh; background-color: rgb(150,50,115,0.75); border: 1px solid #6DFA0F";
 		document.getElementById("notacarclub_description").style.fontSize = "2vh";
 		
 		document.getElementById("snowboard").style = 
-			"visibility: visible; position: absolute; top: 51%; left: 50vw+50vh; transform: translateX(80%); font-size: 2.4vh; line-height: 3.3vh; padding-left: 1%; padding-right: 1%; background-color: rgb(150,50,115,0.75); border: 1px solid #6DFA0F";
+			"visibility: visible; position: absolute; top: 35%; left: 50%; transform: translateX(-50%); font-size: 2.4vh; line-height: 3.3vh; padding-left: 1%; padding-right: 1%; background-color: rgb(150,50,115,0.75); border: 1px solid #6DFA0F";
 		document.getElementById("snowboard_description").style.fontSize = "2vh";
 		
 		document.getElementById("about").style = 
