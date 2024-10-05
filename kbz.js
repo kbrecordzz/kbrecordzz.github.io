@@ -54,16 +54,6 @@ function main()
 	// portrait
 	if (window.innerHeight > window.innerWidth)
 	{
-		document.getElementById("title").style = 
-			"visibility: visible; position: absolute; top: 5%; left: 50%; transform: translateX(-50%); image-rendering: pixelated; height: 13vh;";
-
-		document.getElementById("by").style = 
-			"visibility: visible; position: absolute; top: 18%; left: 50%; transform: translateX(-50%);";
-		document.getElementById("by_text").style = 
-			"font-size: 2vh;";
-		document.getElementById("by_image").style = 
-			"position: relative; top: 1vh; height: 4vh;";
-
 		document.getElementById("notacarclub").style = 
 			"visibility: visible; position: absolute; top: 30%; left: 50%; transform: translateX(-50%); width: 75%; font-size: 2.5vh; line-height: 3vh; padding-top: 1vh; padding-left: 1.5vh; padding-right: 1.5vh; background-color: rgb(150,50,115,0.75); border: 1px solid #6DFA0F";
 		document.getElementById("notacarclub_img").style =
@@ -85,16 +75,6 @@ function main()
 	// landscape (mobile)
 	if (mobile === true)
 	{
-		document.getElementById("title").style = 
-			"visibility: visible; position: absolute; top: 3%; left: 50%; transform: translateX(-50%); image-rendering: pixelated; height: 20vh;";
-
-		document.getElementById("by").style = 
-			"visibility: visible; position: absolute; top: 22%; left: 50%; transform: translateX(-50%);";
-		document.getElementById("by_text").style = 
-			"font-size: 4vh;";
-		document.getElementById("by_image").style = 
-			"position: relative; top: 1.5vh; height: 6vh;";
-
 		document.getElementById("notacarclub").style = 
 			"visibility: visible; position: absolute; top: 80%; left: 50%; transform: translateX(-50%); font-size: 4.4vh; line-height: 5.5vh; padding-top: 1vh; padding-left: 1.5vh; padding-right: 1.5vh; background-color: rgb(150,50,115,0.75); border: 1px solid #6DFA0F";
 		document.getElementById("notacarclub_img").style =
@@ -113,16 +93,6 @@ function main()
 	// landscape (desktop)
 	else
 	{		
-		document.getElementById("title").style = 
-			"visibility: visible; position: absolute; top: 5%; left: 50%; transform: translateX(-50%); image-rendering: pixelated; height: 13vh;";
-
-		document.getElementById("by").style = 
-			"visibility: visible; position: absolute; top: 18%; left: 50%; transform: translateX(-50%);";
-		document.getElementById("by_text").style = 
-			"font-size: 2vh;";
-		document.getElementById("by_image").style = 
-			"position: relative; top: 1vh; height: 4vh;";
-
 		document.getElementById("notacarclub").style = 
 			"visibility: visible; position: absolute; top: 58%; left: 50%; transform: translateX(-50%); font-size: 2.4vh; line-height: 3.3vh; padding-top: 1vh; padding-left: 1.5vh; padding-right: 1.5vh; background-color: rgb(150,50,115,0.75); border: 1px solid #6DFA0F;";
 		document.getElementById("notacarclub_img").style =
