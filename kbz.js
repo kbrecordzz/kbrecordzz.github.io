@@ -59,7 +59,7 @@ function main()
 	// layout
 	else
 	{
-		if (mobile === true) document.getElementById("logo").style.width = "15vh";
+		if (mobile === true) document.getElementById("logo").style.width = "10vh";
 		else document.getElementById("logo").style.width = "20vh";
 		
 		document.getElementById("img1").style.width = "40vh";
