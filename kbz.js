@@ -110,6 +110,8 @@ function touch_start(e)
 }
 document.addEventListener("touchstart", touch_start);
 
+mesh_logo.position.set(camera.position.x-3, camera.position.y+0.35, camera.position.z+2.66);
+
 function touch_end(event)
 {
 	if (eventlock === "touch")
@@ -173,7 +175,6 @@ function main()
 	if (window.innerHeight > window.innerWidth)
 	{
 		mesh_logo.scale.set(0.3,0.6,0.3);
-		mesh_logo.position.set(camera.position.x-3, camera.position.y+0.35, camera.position.z+2.66);
 
 		mesh_snowboard.scale.set(0.25,0.5,0.25);
 		mesh_snowboard.position.set(camera.position.x-3, camera.position.y-0.5, camera.position.z+1);
