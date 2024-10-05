@@ -53,14 +53,17 @@ function main()
 	// portrait
 	if (window.innerHeight > window.innerWidth)
 	{
+		if (mobile === true) document.getElementById("logo").style.width = "20vh";
+		else document.getElementById("logo").style.width = "20vh";
+		
 		document.getElementById("img1").style.width = "20vh";
 		document.getElementById("img2").style.width = "20vh";
 	}
 	// layout
 	else
 	{
-		if (mobile === true) document.getElementById("logo").style.width = "10vh";
-		else document.getElementById("logo").style.width = "20vh";
+		if (mobile === true) document.getElementById("logo").style.width = "20vh";
+		else document.getElementById("logo").style.width = "10vh";
 		
 		document.getElementById("img1").style.width = "40vh";
 		document.getElementById("img2").style.width = "40vh";
