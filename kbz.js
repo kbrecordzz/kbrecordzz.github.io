@@ -50,6 +50,15 @@ mesh_cloudbox2.position.set(camera.position.x, camera.position.y-15, camera.posi
 // main game loop
 function main()
 {
+	// portrait
+	if (window.innerHeight > window.innerWidth)
+	{
+	}
+	// layout
+	else
+	{
+	}
+	
 	if (mobile === true) renderer.setPixelRatio(window.devicePixelRatio*0.4);
 	else renderer.setPixelRatio(window.devicePixelRatio*0.8);
 
