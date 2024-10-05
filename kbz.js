@@ -16,7 +16,8 @@ mat_cloudbox.map.minFilter = THREE.NearestFilter;
 mat_cloudbox.map.magFilter = THREE.NearestFilter;
 mat_cloudbox.transparent = true;
 mat_cloudbox.opacity = 0.75;
-mat_cloudbox.map.repeat.set(0.1,0.1);
+mat_cloudbox.map.repeat.x = 0.1;
+mat_cloudbox.map.repeat.y = 0.1;
 //					                               radius top	 radius bot	height	segments
 var geometry_cloudbox = new THREE.CylinderGeometry(120,		119.8,		1,		32);
 var mesh_cloudbox = new THREE.Mesh(geometry_cloudbox, mat_cloudbox);
@@ -295,7 +296,8 @@ function main()
 	renderer.setSize(window.innerWidth, window.innerHeight);
 
 	if (cloudbox_animate < 1) cloudbox_animate += 0.00003; else cloudbox_animate = 0;
-	mat_cloudbox.map.offset.set(cloudbox_animate, cloudbox_animate);
+	mat_cloudbox.map.offset.x = cloudbox_animate;
+	mat_cloudbox.map.offset.y = cloudbox_animate;
 
 	renderer.render(scene, camera);
 
