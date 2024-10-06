@@ -53,7 +53,7 @@ function main()
 		else document.getElementById("logo").style.width = "20vh";
 		
 		document.getElementById("img1").style.width = "20vh";
-		document.getElementById("img2").style.width = "27vh";
+		document.getElementById("img2").style.width = "25vh";
 	}
 	// layout
 	else
@@ -62,7 +62,7 @@ function main()
 		else document.getElementById("logo").style.width = "20vh";
 		
 		document.getElementById("img1").style.width = "40vh";
-		document.getElementById("img2").style.width = "54vh";
+		document.getElementById("img2").style.width = "50vh";
 	}
 	
 	if (mobile === true) renderer.setPixelRatio(window.devicePixelRatio*0.4);
