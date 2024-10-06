@@ -120,7 +120,7 @@ function ts_end_to_room(fcut)
 	bet_started = false;
 //	cut = fcut;
 
-	next_cut_after_blackintro = fcut;		// sätts i början av main.js
+	next_cut_after_blackintro = fcut;		// sÃ¤tts i bÃ¶rjan av main.js
 	cut = CUT_CUTSCENE_BLACKINTRO;
 }
 
@@ -200,7 +200,7 @@ function layout_set()
 			document.getElementById("credits_text").style = 
 				"position: relative; top: 1vw; left: 50%; transform: translate(-50%, 0%); width: 68vh; max-width: 95vw;\
 				display: block;\
-				font-size: 1.9vh; color: lightgray; font-family: 'kbfont'; text-align: center; line-height: 110%;";
+				font-size: 1.9vh; color: black; font-family: 'kbfont'; text-align: center; line-height: 110%;";
 
 			document.getElementById("dialog_background").style.cursor = "pointer";
 
@@ -305,7 +305,7 @@ function layout_set()
 			document.getElementById("credits_text").style = 
 				"position: relative; top: 1vw; left: 50%; transform: translate(-50%, 0%); width: 30vw;\
 				display: block;\
-				font-size: 1.6vw; color: lightgray; font-family: 'kbfont'; text-align: center; line-height: 110%;";
+				font-size: 1.6vw; color: black; font-family: 'kbfont'; text-align: center; line-height: 110%;";
 
 			document.getElementById("dialog_background").style.cursor = "pointer";
 
@@ -407,7 +407,7 @@ function layout_set()
 			document.getElementById("credits_text").style = 
 				"position: relative; top: 0vw; left: 50%; transform: translate(-50%, 0%); width: 100%;\
 				display: block;\
-				font-size: 2.2vh; color: lightgray; font-family: 'kbfont'; text-align: center; line-height: 110%;";
+				font-size: 2.2vh; color: black; font-family: 'kbfont'; text-align: center; line-height: 110%;";
 
 			document.getElementById("dialog_background").style.cursor = "pointer";
  
@@ -656,12 +656,12 @@ function camera_set()
 
 		let strive_dist_x = camera.position.x-camera_strive_x;
 		let strive_dist_z = camera.position.z-camera_strive_z;
-		if (camera.position.x-camera_strive_x < -0.01) camera.position.x -= 0.4*strive_dist_x;		// det är 0.3*strive_dist_x som gör wobblingen i kameran när man åker för snabbt!
+		if (camera.position.x-camera_strive_x < -0.01) camera.position.x -= 0.4*strive_dist_x;		// det Ã¤r 0.3*strive_dist_x som gÃ¶r wobblingen i kameran nÃ¤r man Ã¥ker fÃ¶r snabbt!
 		else if (camera.position.x-camera_strive_x > 0.01) camera.position.x -= 0.4*strive_dist_x;
 		if (camera.position.z-camera_strive_z < -0.01) camera.position.z -= 0.4*strive_dist_z;
 		else if (camera.position.z-camera_strive_z > 0.01) camera.position.z -= 0.4*strive_dist_z;
 
-		if (mobile === true) camera_strive_y = player.position.y+1.6;	// tillägg EP2 för mobile!!
+		if (mobile === true) camera_strive_y = player.position.y+1.6;	// tillÃ¤gg EP2 fÃ¶r mobile!!
 		else camera_strive_y = s_1008_strive+0.9;//1.6;//player.position.y+0.6;
 		let strive_dist_y = camera.position.y-camera_strive_y;
 		if (camera.position.y-camera_strive_y < -0.01) camera.position.y -= 0.34*strive_dist_y;	
@@ -786,7 +786,7 @@ function cut_set()
 	{
 		if (cut === CUT_SPLASHSCREEN)
 		{
-			// konstgjord laddningstid på en sekund, där terräng och bilder kan hinna laddas in och visas först när de är färdigladdade (förhoppningsvis!)
+			// konstgjord laddningstid pÃ¥ en sekund, dÃ¤r terrÃ¤ng och bilder kan hinna laddas in och visas fÃ¶rst nÃ¤r de Ã¤r fÃ¤rdigladdade (fÃ¶rhoppningsvis!)
 			if (performance.now()-splashscreen_very_starttime > 1000)
 			{
 				document.getElementById("loadingscreen").style.visibility = "hidden";
@@ -804,13 +804,13 @@ function cut_set()
 		{
 			if (performance.now()-splashscreen_click_starttime > 1000)
 			{
-			//	next_cut_after_blackintro = CUT_FREEROAM_INTRO2;		// sätts i början av main.js
+			//	next_cut_after_blackintro = CUT_FREEROAM_INTRO2;		// sÃ¤tts i bÃ¶rjan av main.js
 			//	ts_end(CUT_CUTSCENE_BLACKINTRO);
 				ts_end(CUT_FREEROAM_INTRO2);
 			}
 			else
 			{
-				// DENNA KOD FORTSÄTTER I CUT_FREEROAM_INTRO2!!
+				// DENNA KOD FORTSÃ„TTER I CUT_FREEROAM_INTRO2!!
 				sound_carstart.play();
 				top = 0.17 * (performance.now()-splashscreen_click_starttime) - 190;
 				document.getElementById("snowflake").style = "position: fixed; visibility: visible; top: " + top + "vh; left: 0; width: 100vw; image-rendering: pixelated; transform: rotate(" + top + "deg);";
@@ -852,7 +852,7 @@ function cut_set()
 			freeroam_intro2_started = true;
 		}
 
-		// FORTSÄTTNING PÅ KOD FRÅN CUT_SPLASHSCREEN_WAIT!!
+		// FORTSÃ„TTNING PÃ… KOD FRÃ…N CUT_SPLASHSCREEN_WAIT!!
 		if (performance.now()-splashscreen_click_starttime < 2000)
 		{
 			top = 0.17 * (performance.now()-splashscreen_click_starttime) - 190;
