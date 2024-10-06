@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<style>
+		@font-face { font-family: 'kbfont'; src: url('files/TT2020StyleE-Regular_smaller2.ttf') format('truetype'); }
+		</style>
+
+		<meta name="viewport" content="user-scalable=no"/>
+		<link rel="icon" href="files/logo_kbr.ico">
+		<title>Adele Savage's Legendary Snowboarding Camp</title>
+	</head>
+
+	<img id="loadingbackground" style="position: fixed; top: 0; left: 0; height: 100vh; width: 100vw;" src="files/lila_background.png"></img>
+	<img id="loadingscreen" style="position: fixed; top: 50%; left: 50%; min-height: 20vh; max-width: 80%; transform: translate(-50%, -50%);" src="files/cropped-test-6.gif"></img>
+
+	<!-- this prevents text highlighting -->
+	<body style="touch-action: none; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; background-color: #73205D; margin: 0;">
+	<!--	<img id="vhs-filter" style="mix-blend-mode: overlay; opacity: 0.37; position: fixed; width: 100%; height: 100%; visibility: hidden;" src="files/whitegif_small.gif"></img>	-->
+	<!--	<img id="vhs-filter3" style="filter: hue-rotate(190deg); mix-blend-mode: hue; opacity: 0.10; position: fixed; width: 100%; height: 100%; visibility: hidden;" src="files/whitegif_small.gif"></img>	-->
+
+		<!-- saker som ska gå att klicka på måste vara längst ner -->
+
+		<img id="count_3" style="position: fixed; visibility: hidden;" src="files/COUNT_3.png"></img>
+		<img id="count_2" style="position: fixed; visibility: hidden;" src="files/COUNT_2.png"></img>
+		<img id="count_1" style="position: fixed; visibility: hidden;" src="files/COUNT_1.png"></img>
+		<img id="wrongway" style="position: fixed; visibility: hidden;" src="files/WRONG_WAY.png"></img>
+
+		<div id="dialog_background" style="position: fixed; visibility: hidden;">
+			<img id="dialog_head" style="position: fixed; visibility: hidden;"></img>
+			<p id="dialog_name" style="position: fixed; visibility: hidden;"></p>
+			<p id="dialog_text" style="position: fixed; visibility: hidden;"></p>
+		</div>
+
+		<div id="dvdmenu" style="position: fixed; visibility: hidden;">
+			<img id="dvdmenu_image" style="position: fixed; visibility: hidden;" src="files/legendary_logo.png"></img>
+		</div>
+
+		<div id="button_pause" style="position: fixed; visibility: hidden;">?</div>
+		<style>#button_pause:hover, #button_pause:active { filter: invert(100%); }</style>
+		<div id="button_fullscreen" style="position: fixed; visibility: hidden;"></div>
+		<style>#button_fullscreen:hover, #button_fullscreen:active { filter: invert(100%); }</style>
+
+		<div id="button_up" style="position: fixed; visibility: hidden;">&blacktriangle;</div>
+		<div id="button_down" style="position: fixed; visibility: hidden;">&#x25A0;</div>
+		<div id="button_left" style="position: fixed; visibility: hidden;">&blacktriangleleft;</div>
+		<div id="button_right" style="position: fixed; visibility: hidden;">&blacktriangleright;</div>
+
+		<div id="credits_background" style="position: fixed; visibility: hidden;">
+			<p id="credits_text" style="position: fixed; visibility: hidden;">A game by: kbrecordzz<br>Characters: H. Von Asrik<br>Terrain: Based on Graham Relf's "The Forest"<br>Art & background images: Sachiko Mili<br>Songs: sfabian<br>AI art: craiyon.com & lexica.art</p>
+		</div>
+
+		<img id="button_play" style="position: absolute; visibility: hidden;" src="files/legendary_start.png"></img>
+		<style>#button_play:hover, #button_play:active { filter: invert(100%); }</style>
+
+		<img id="snowflake" style="position: absolute; visibility: hidden;" src="files/snow.png"></img>
+
+<!-- minecraft DEBUG -->
+<hey style="visibility: hidden;" id="minecraft_toggle">
+<button id="d_house" style="position: absolute; top: 7%; left: 8%; height: 8%; width: 5%; font-size: 2.2vw;">H</button>
+<button id="d_zero" style="position: absolute; top: 7%; left: 13.5%; height: 8%; width: 5%; font-size: 2.2vw;">(0)</button>
+<button id="d_htree" style="position: absolute; top: 7%; left: 19%; height: 8%; width: 5%; font-size: 2.2vw;">T</button>
+<button id="d_getheight" style="position: absolute; top: 16.5%; left: 8%; height: 8%; width: 15%; font-size: 2.2vw; background-color: #7777FF;">GET HEIGHT</button>
+<button id="d_putheight" style="position: absolute; top: 24.5%; left: 8%; height: 8%; width: 5%; font-size: 2.2vw; background-color: #00BB00;">PUT</button>
+<button id="d_putheight2" style="position: absolute; top: 24.5%; left: 14%; height: 8%; width: 9%; font-size: 2.2vw; background-color: #00FF00;">HGT</button>
+<button id="d_ground" style="position: absolute; top: 34%; left: 8%; height: 8%; width: 7%; font-size: 2.2vw; background-color: #AA6600;">GRD</button>
+<!-- <button id="d_trees" style="position: absolute; top: 34%; left: 13.5%; height: 8%; width: 5%; font-size: 2.2vw;">TRE</button> -->
+<button id="d_chouses" style="position: absolute; top: 34%; left: 16%; height: 8%; width: 7%; font-size: 2.2vw; background-color: #FF3333">HSE</button>
+<button id="d_character" style="position: absolute; top: 43%; left: 8%; height: 8%; width: 9%; font-size: 2.2vw;">CHR</button>
+<button id="d_plus" style="position: absolute; top: 43%; left: 18%; height: 8%; width: 5%; font-size: 2.2vw;">+</button>
+<button id="d_position" style="position: absolute; top: 52%; left: 8%; height: 8%; width: 15%; font-size: 2.2vw;">XZ POS</button>
+
+<button id="d_minecraft" style="position: absolute; top: 16%; right: 5%; height: 8%; width: 12%; font-size: 2.2vw;">minecraft</button>
+<button id="d_code" style="position: absolute; top: 30%; right: 5%; height: 16%; width: 15%; font-size: 2.2vw; background-color: #55CC55;">TO CODE</button>
+
+<p id="minecraft_output" style="user-select: text; position: fixed; top: 20%; left: 24%; width: 55%; font-size: 1.5vh; color: #FFFF00; background-color: rgba(0,0,0, 0.5);"></p>
+</hey>
+
+		<script src="loadfirst.js?v=41"></script>
+		<script src="three-kbrecordzz.js?v=44"></script>		<!-- r113? yes, probably. or r111 -->
+		<script src="ascend_test.js?v=41"></script>
+		<script src="functions.js?v=41"></script>
+		<script src="basic.js?v=41"></script>
+		<script src="input.js?v=41"></script>
+		<script src="main.js?v=41"></script>
+	</body>
+</html>
